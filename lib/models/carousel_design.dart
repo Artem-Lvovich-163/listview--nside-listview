@@ -19,12 +19,15 @@ class CarouselDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      child: Column(
-        children: [
-          Image.asset(carousel.image),
-        ],
+      width: size.width * 0.5,
+      color: Colors.purple,
+      margin: EdgeInsets.symmetric(
+        horizontal: size.width * 0.05,
       ),
+      alignment: Alignment.center,
+      child: Image.asset(carousel.image),
     );
   }
 }
