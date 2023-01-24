@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:learningkarousel/models/carousel.dart';
@@ -73,8 +75,10 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: ((context, index) => CarouselDesign(
                       carousel: carouselList[index],
-                      press: () =>
-                          openInBrowser(carouselList.elementAt(index).path),
+                      press: ()  {
+                          openInBrowser(carouselList.elementAt(index).path);
+                          log('carouselList.elementAt(index).path = ${carouselList.elementAt(index).path}');
+                      }
                     )),
               ),
             ),

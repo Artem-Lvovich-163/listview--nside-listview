@@ -9,7 +9,7 @@ import 'package:learningkarousel/models/carousel.dart';
 
 class CarouselDesign extends StatelessWidget {
   final Carousel carousel;
-  final Function press;
+  final Function()? press;
 
   const CarouselDesign({
     Key? key,
@@ -20,14 +20,17 @@ class CarouselDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width * 0.5,
-      color: Colors.purple,
-      margin: EdgeInsets.symmetric(
-        horizontal: size.width * 0.05,
+    return InkWell(
+      onTap: press,
+      child: Container(
+        width: size.width * 0.5,
+        color: Colors.purple,
+        margin: EdgeInsets.symmetric(
+          horizontal: size.width * 0.05,
+        ),
+        alignment: Alignment.center,
+        child: Image.asset(carousel.image),
       ),
-      alignment: Alignment.center,
-      child: Image.asset(carousel.image),
     );
   }
 }
